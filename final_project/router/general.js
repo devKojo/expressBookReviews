@@ -12,8 +12,8 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
+    if(books.length >0) res.status(200).send(JSON.stringify({books}, null, 4))
+    else res.status(404).send(JSON.stringify({message: 'Books not found'}, null, 4))
 });
 
 // Get book details based on ISBN
